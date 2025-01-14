@@ -1,7 +1,7 @@
 /* Documentation is here: */
 /* https://docs.obsidian.md/Reference/CSS+variables/CSS+variables */
 
-body {
+.theme-dark {
 	/* Unofficial variables used in the theme */
 	--interfator-color-aqua-bright: #5cffde;
 	--interfator-color-aqua-bright-rgb: 92, 255, 222;
