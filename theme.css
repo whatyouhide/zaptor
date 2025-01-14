@@ -1,34 +1,153 @@
+/* Documentation is here: */
+/* https://docs.obsidian.md/Reference/CSS+variables/CSS+variables */
+
 body {
-	--radius-s: 0px;
-	--radius-m: 0px;
-	--radius-l: 0px;
-	--input-radius: 0px;
-	--tab-radius-active: 0px;
-	--checkbox-radius: 0px;
-	--toggle-radius: 0px;
-	--toggle-thumb-radius: 0px;
-	--slider-thumb-radius: 0px;
+	/* Unofficial variables used in the theme */
+	--interfator-color-aqua-bright: #5cffde;
+	--interfator-color-aqua-bright-rgb: 92, 255, 222;
+	--interfator-color-aqua-dim: #00ffcc;
+
+	/* Some of these colors are too light. Need to work on them. */
+	/* https://docs.obsidian.md/Reference/CSS+variables/Foundations/Colors#Base+colors */
+	--color-base-00: #191a1b;
+	--color-base-05: #002b36;
+	--color-base-10: #203337;
+	--color-base-20: #164145;
+	--color-base-25: #1d5c62;
+	--color-base-30: #2a6164;
+	--color-base-35: #3a7075;
+	--color-base-40: #3a7075;
+	--color-base-50: #4a8b8d;
+	--color-base-60: #5aa6a8;
+	--color-base-70: #75cace;
+	--color-base-70-rgb: 117, 202, 206;
+
+	/* Used by main text (--text-normal) */
+	--color-base-100: #a4dcdf;
+	--color-base-100-rgb: 164, 220, 223;
+
+	/* Backgrounds */
+	--background-primary: var(--color-base-00);
+	--background-secondary: var(--color-base-05);
+
+	/* Borders in the interface */
+	--background-modifier-border: var(--color-base-30);
+
+	/* Text colors */
+	--text-muted: rgba(var(--color-base-100-rgb), 0.8);
+	--text-accent: var(--interfator-color-aqua-bright);
+	--text-accent-hover: var(--interfator-color-aqua-bright);
+	--text-selection: var(--color-base-30);
+
+	--interfator-text-shadow: 0 0 2px rgba(var(--interfator-color-aqua-bright-rgb), 0.7);
+
+	/* Headers */
+	--h1-size: 3.5em;
+	--h2-size: 2.2em;
+
+	/* Code */
+	--code-normal: rgb(var(--interfator-color-aqua-bright-rgb), 1.0);
+	--code-size: 1em;
+
+	/* A bit more space between lines */
+	--line-height-normal: 1.6;
+
+	/* TODO 👇 */
+
+
+	/* Buttons and borders */
+	/* Bright interactive elements */
+	--interactive-accent-hover: #00e6b8;
+	/* On hover */
+
+	/* Scrollbar */
+	--scrollbar-thumb: #004d5e;
+	--scrollbar-thumb-hover: #006f7f;
+
+	/* Popovers and modals */
+	--popover-background: #003540;
+	--popover-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+
+	/* Grid and terminals */
+	--grid-line-color: rgba(8, 255, 200, 0.05);
+	/* Light grid lines */
+
+	/* Defaults to --color-base-25 */
+	--background-modifier-form-field: var(--color-base-10);
 }
 
-.workspace-tab-header.is-active::before, .workspace-tab-header.is-active::after {
-	display: none;
+/* Neon effects for interactive elements */
+button,
+a {
+	text-shadow: var(--interfator-text-shadow);
 }
 
-svg * {
-	stroke-linecap: square;
-	stroke-linejoin: miter;
-	rx: 0;
-	ry: 0;
+pre {
+	border: 1px solid var(--color-base-70);
+	box-shadow: 0 0 6px var(--color-base-100);
 }
 
-.menu {
-	padding: var(--size-2-1);
+/* TODO: */
+/* .HyperMD-codeblock {
+	border: 1px solid red !important;
+} */
+
+/* Customizations */
+.workspace-split {
+	border-color: var(--background-modifier-border);
 }
 
-.menu-item {
-	padding: var(--size-4-1) var(--size-4-2);
+/* Messages interface styling */
+.markdown-preview-view {
+	background: var(--background-primary);
+	color: var(--text-normal);
 }
 
-.menu-separator {
-	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
+/* Add grid overlay */
+.workspace-leaf-content .view-content::before {
+	position: absolute;
+	z-index: 1;
+	inset: 0;
+	background:
+		repeating-radial-gradient(closest-corner at 21% 21%, #fff, rgba(0, 0, 255, .5), rgb(3, 0, 255) 20%),
+		repeating-radial-gradient(closest-corner at 61% 21%, #fff, rgba(0, 255, 0, .5), rgb(3, 0, 255) 20%),
+		repeating-radial-gradient(closest-corner at 91% 51%, #fff, rgba(255, 255, 1, .5), rgb(055, 255, 255) 20%);
+	background-size: 15px 13px, 12px 22px, 12px 22px;
+	background-blend-mode: exclusion, normal;
+	mix-blend-mode: exclusion;
+	content: '';
+	opacity: 0.01;
+}
+
+.workspace-leaf-content .view-content {
+	background:
+		/* Grid layer */
+		linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px) !important;
+
+	/* Grid spacing for horizontal and vertical lines */
+	background-size: 13px 40px !important;
+}
+
+/* Popover appearance */
+.popover {
+	background: var(--popover-background);
+	box-shadow: var(--popover-shadow);
+	color: var(--text-normal);
+	border: 1px solid var(--background-modifier-border);
+}
+
+/* Alerts */
+.alert {
+	background: var(--background-secondary);
+	border: 1px solid var(--interactive-accent);
+	padding: 10px;
+	font-family: 'JetBrains Mono', monospace;
+	color: var(--text-accent);
+}
+
+
+button:hover,
+a:hover {
+	text-shadow: 0 0 10px var(--interactive-accent-hover);
 }
