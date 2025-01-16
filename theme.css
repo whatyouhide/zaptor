@@ -40,9 +40,12 @@
 	--text-selection: var(--color-base-30);
 
 	--interfator-text-shadow: 0 0 2px rgba(var(--interfator-color-aqua-bright-rgb), 0.7);
+	--interfator-text-shadow-hover: 0 0 10px var(--interactive-accent-hover);
+	--interfator-grid-spacing-x: 17px;
+	--interfator-grid-spacing-y: 30px;
 
 	/* Headers */
-	--h1-size: 3.5em;
+	--h1-size: 2.8em;
 	--h2-size: 2.2em;
 
 	/* Code */
@@ -56,7 +59,7 @@
 
 
 	/* Buttons and borders */
-	/* Bright interactive elements */
+	--interactive-accent: var(--color-base-60);
 	--interactive-accent-hover: #00e6b8;
 	/* On hover */
 
@@ -82,29 +85,22 @@ a {
 	text-shadow: var(--interfator-text-shadow);
 }
 
+button:hover,
+a:hover {
+	text-shadow: var(--interfator-text-shadow-hover);
+}
+
 pre {
 	border: 1px solid var(--color-base-70);
 	box-shadow: 0 0 6px var(--color-base-100);
 }
-
-/* TODO: */
-/* .HyperMD-codeblock {
-	border: 1px solid red !important;
-} */
 
 /* Customizations */
 .workspace-split {
 	border-color: var(--background-modifier-border);
 }
 
-/* Messages interface styling */
-.markdown-preview-view {
-	background: var(--background-primary);
-	color: var(--text-normal);
-}
-
 /* Add grid overlay */
-
 .workspace-leaf-content .view-content {
 	background:
 		/* Grid layer */
@@ -112,28 +108,5 @@ pre {
 		linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px) !important;
 
 	/* Grid spacing for horizontal and vertical lines */
-	background-size: 13px 40px !important;
-}
-
-/* Popover appearance */
-.popover {
-	background: var(--popover-background);
-	box-shadow: var(--popover-shadow);
-	color: var(--text-normal);
-	border: 1px solid var(--background-modifier-border);
-}
-
-/* Alerts */
-.alert {
-	background: var(--background-secondary);
-	border: 1px solid var(--interactive-accent);
-	padding: 10px;
-	font-family: 'JetBrains Mono', monospace;
-	color: var(--text-accent);
-}
-
-
-button:hover,
-a:hover {
-	text-shadow: 0 0 10px var(--interactive-accent-hover);
+	background-size: var(--interfator-grid-spacing-x) var(--interfator-grid-spacing-y) !important;
 }
