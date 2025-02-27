@@ -6,6 +6,10 @@
 	--interfator-color-aqua-bright: #5cffde;
 	--interfator-color-aqua-bright-rgb: 92, 255, 222;
 	--interfator-color-aqua-dim: #00ffcc;
+	--interfator-color-contrast-accent: #F6F5AE;
+	--interfator-color-contrast-accent-rgb: 246, 245, 174;
+	--interfator-color-contrast-accent-2: #E39774;
+	--interfator-color-contrast-accent-2-rgb: 227, 151, 116;
 
 	/* Some of these colors are too light. Need to work on them. */
 	/* https://docs.obsidian.md/Reference/CSS+variables/Foundations/Colors#Base+colors */
@@ -39,14 +43,21 @@
 	--text-accent-hover: var(--interfator-color-aqua-bright);
 	--text-selection: var(--color-base-30);
 
+	--italic-color: var(--interfator-color-contrast-accent);
+	--bold-color: var(--interfator-color-contrast-accent-2);
+
 	--interfator-text-shadow: 0 0 2px rgba(var(--interfator-color-aqua-bright-rgb), 0.7);
 	--interfator-text-shadow-hover: 0 0 10px var(--interactive-accent-hover);
 	--interfator-grid-spacing-x: 17px;
 	--interfator-grid-spacing-y: 30px;
 
 	/* Headers */
-	--h1-size: 2.8em;
-	--h2-size: 2.2em;
+	--h1-size: 2.6em;
+	--h2-size: 2.0em;
+
+	--h1-color: var(--text-accent);
+	--h2-color: var(--interfator-color-contrast-accent);
+	--h3-color: var(--interfator-color-contrast-accent-2);
 
 	/* Code */
 	--code-normal: rgb(var(--interfator-color-aqua-bright-rgb), 1.0);
